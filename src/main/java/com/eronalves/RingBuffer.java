@@ -18,6 +18,7 @@ public class RingBuffer<T> {
     }
 
     public T read(){
+        if(isEmpty()) return null;
         return buffer.get(cursor.nextRead());
     }
 
