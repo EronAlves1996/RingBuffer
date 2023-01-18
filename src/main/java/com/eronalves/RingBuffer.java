@@ -17,6 +17,11 @@ public class RingBuffer<T> {
         buffer.add(cursor.nextWrite(), element);
     }
 
+    public void insertWithoutRewrite(T element){
+        if(isFull()) throw new RuntimeException("Buffer is Full");
+        insertOrRewrite(element);
+    }
+
     public T read(){
         if(isEmpty()) return null;
         return buffer.get(cursor.nextRead());
