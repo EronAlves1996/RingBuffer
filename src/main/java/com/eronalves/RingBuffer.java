@@ -20,4 +20,13 @@ public class RingBuffer<T> {
     public T read(){
         return buffer.get(cursor.nextRead());
     }
+
+    public boolean isEmpty(){
+        return cursor.writeIsBehindRead();
+    }
+
+    public boolean isFull(){
+        return cursor.readIsOnMaxPos();
+    }
+
 }

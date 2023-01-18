@@ -21,4 +21,12 @@ public class Cursor {
     public int nextRead() {
         return (++readPos % maxPos);
     }
+
+    public boolean writeIsBehindRead() {
+        return writePos < readPos;
+    }
+
+    public boolean readIsOnMaxPos() {
+        return readPos + 1 == maxPos;
+    }
 }
