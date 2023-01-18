@@ -13,7 +13,7 @@ public class RingBuffer<T> {
         cursor = Cursor.initialize(allocationSize);
     }
 
-    public void insert(T element){
+    public void insertOrRewrite(T element){
         buffer.add(cursor.nextWrite(), element);
     }
 
