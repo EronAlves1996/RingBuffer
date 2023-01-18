@@ -13,4 +13,12 @@ public class Cursor {
     private Cursor(int maxVal){
         this.maxPos = maxVal;
     }
+
+    public int nextWrite() {
+        return (writePos++ % maxPos);
+    }
+
+    public int nextRead() {
+        return (++readPos % maxPos);
+    }
 }

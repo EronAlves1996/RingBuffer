@@ -12,4 +12,12 @@ public class RingBuffer<T> {
         buffer = new ArrayList<>(allocationSize);
         cursor = Cursor.initialize(allocationSize);
     }
+
+    public void insert(T element){
+        buffer.add(cursor.nextWrite(), element);
+    }
+
+    public T read(){
+        return buffer.get(cursor.nextRead());
+    }
 }
