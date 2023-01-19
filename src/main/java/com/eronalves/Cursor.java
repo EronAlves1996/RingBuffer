@@ -26,7 +26,7 @@ public class Cursor {
         return writePos < readPos;
     }
 
-    public boolean readIsOnMaxPos() {
-        return readPos + 1 == maxPos;
+    public boolean writeIsOnMaxPos() {
+        return writePos + 1 == maxPos;
     }
 }

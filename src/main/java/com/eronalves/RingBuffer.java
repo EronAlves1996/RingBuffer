@@ -32,7 +32,7 @@ public class RingBuffer<T> {
     }
 
     public boolean isFull(){
-        return cursor.readIsOnMaxPos();
+        return cursor.writeIsOnMaxPos();
     }
 
 }
