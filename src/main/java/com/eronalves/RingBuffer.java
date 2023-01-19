@@ -5,14 +5,14 @@ import java.util.List;
 
 public class RingBuffer<T> {
 
-    private final List<T> buffer;
+    private final T[] buffer;
     private final Cursor cursor;
 
     private Tracker tracker;
 
 
     public RingBuffer(int allocationSize){
-        buffer = new ArrayList<>(allocationSize);
+        buffer = (T[]) new Object[allocationSize];
         cursor = Cursor.initialize(allocationSize);
         tracker = new Tracker(allocationSize);
     }
@@ -34,11 +34,11 @@ public class RingBuffer<T> {
     }
 
     public boolean isEmpty(){
-        return cursor.writeIsBehindRead();
+        return tracker.sizeIsZero();
     }
 
     public boolean isFull(){
-        return cursor.writeIsOnMaxPos();
+        return tracker.capacityIsZero();
     }
 
 }
