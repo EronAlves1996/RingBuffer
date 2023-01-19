@@ -15,13 +15,12 @@ public class Cursor {
     }
 
     public int nextWrite() {
-        writePos = ++writePos % maxPos;
-        return writePos;
+        return writePos = (writePos + 1) % maxPos;
     }
 
     public int nextRead() {
         int temp = readPos;
-        readPos = ++readPos % maxPos;
+        readPos = (readPos + 1) % maxPos;
         return temp;
     }
 
